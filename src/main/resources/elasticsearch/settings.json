@@ -1,0 +1,21 @@
+{
+  "index": {
+    "max_result_window" : "500000",
+    "number_of_shards": "5",
+    "number_of_replicas": "1",
+    "analysis": {
+      "analyzer": {
+        "ko_analyzer": {
+          "type": "custom",
+          "filter": [
+            "word_delimiter",
+            "arirang_filter",
+            "lowercase",
+            "trim"
+          ],
+          "tokenizer": "arirang_tokenizer"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: configFragment">
+	    <!-- 공통으로 쓰이는 css 파일을 넣는다.-->
+    <!-- Basic Styles -->
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/smartAdmin/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/smartAdmin/css/font-awesome.min.css" />
+
+    <!-- SmartAdmin Styles : Please note (smartadmin-production.css) was created using LESS variables -->
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/smartAdmin/css/smartadmin-production.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/smartAdmin/css/smartadmin-skins.min.css" />
+
+    <!-- SmartAdmin RTL Support is under construction-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/smartAdmin/css/smartadmin-rtl.min.css" />
+
+    <!-- Style css -->
+    <link rel="stylesheet" href="../static/css/demo.css" />
+    <link rel="stylesheet" href="../static/ecoleTree/css/ecoleTree.css" />
+</head>
+<body>
+    <header th:replace="fragments/header :: headerFragment">
+    </header>
+    <div class="container">
+        <div class="bxListWrap">
+            <div class="row">
+                <div class="col-xs-2"></div>
+                <div class="col-xs-8">
+                    <img src="../static/ecoleTree/img/logo.png" />
+                    <div class="bxListHead">
+                        <div class="col-xs-5"><span th:if="${keywords != null and keywords.length() > 0}" th:text="${keywords} + ' 으로 검색한 결과입니다.'"></span></div>
+                        <div class="col-xs-2"><span th:text="${searched} + '/' + ${total}"></span></div>
+                        <div class="col-xs-5"><a href="/" class="btn btn-default btn-sm">검색으로 돌아가기</a><br/></div>
+                    </div>
+
+                    <table class="table table-striped table-bordered table-hover dataTable no-footer">
+                        <thead>
+                        </thead>
+                        <tbody>
+                            <tr th:each="product: ${page.content}">
+                                <td>
+                                    <!--
+                                    <a th:href="${product.url}" th:if="${product.website == 'https://www.surplusglobal.com/'}" th:text="SurplusGlobal"></a>
+                                    <a th:href="${product.url}" th:if="${product.website == 'https://www.equipmatching.com/'}" th:text="Equipmatching"></a>
+                                    -->
+                                    <span th:if="${product.website == 'https://www.surplusglobal.com/'}" th:text="SurplusGlobal"></span>
+                                    <span th:if="${product.website == 'https://www.equipmatching.com/'}" th:text="Equipmatching"></span>
+                                </td>
+                                <td>
+                                    <a th:href="${product.url}" th:text="${'[' + product.adNum + '] ' + product.title}"></a>
+                                </td>
+                                <td>
+                                    <span th:if="${'Sold' == product.sellingStatus}" th:text="${'[Sold] ' + product.adStatus}"></span>
+                                    <span th:unless="${'Sold' == product.sellingStatus}" th:text="${product.adStatus}"></span>
+                                    <span th:unless="${'ALL' == product.adType}" th:text="${product.adType}"></span>
+                                    <!--<span th:if="${product.adStatus}" th:text="${product.adStatus + ' ' + product.sellingStatus + ' ' + product.adType}"></span>-->
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-xs-2">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-2 col-md-2"></div>
+            <div class="col-xs-8 col-md-8">
+                <div class="col-xs-2"></div>
+                <div class="col-xs-8">
+                    <ul class="pagination">
+                        <th:block th:if="${page.hasPrevious()}">
+                            <li><a th:href="@{/search(keywords=${keywords},size=${page.size},page=0)}">&laquo; </a></li>
+                            <li><a th:href="@{/search(keywords=${keywords},size=${page.size},page=${page.number - 1})}">&larr;</a></li>
+                        </th:block>
+                        <th:block th:unless="${page.hasPrevious()}">
+                            <li class="disabled"><a th:href="@{/search(keywords=${keywords},size=${page.size},page=0)}">&laquo; </a></li>
+                            <li class="disabled"><a th:href="@{/search(keywords=${keywords},size=${page.size},page=${page.number - 1})}">&larr;</a></li>
+                        </th:block>
+                        <th:block th:each="i: ${#numbers.sequence(page.number / 10 * 10, (page.number / 10 + 1) * 10 - 1)}">
+                            <th:block th:if="${i < page.totalPages}">
+                                <li th:if="${page.number == i}" class="active">
+                                    <a th:href="@{/search(keywords=${keywords},size=${page.size},page=${i})}">[[${i}+1]]</a>
+                                </li>
+                                <li th:unless="${page.number == i}">
+                                    <a th:href="@{/search(keywords=${keywords},size=${page.size},page=${i})}">[[${i}+1]]</a>
+                                </li>
+                            </th:block>
+                        </th:block>
+                        <th:block th:if="${page.hasNext()}">
+                            <li><a th:href="@{/search(keywords=${keywords},size=${page.size},page=${page.number + 1})}">&rarr;</a></li>
+                            <li><a th:href="@{/search(keywords=${keywords},size=${page.size},page=${page.getTotalPages() - 1})}">&raquo; </a></li>
+                        </th:block>
+                        <th:block th:unless="${page.hasNext()}">
+                            <li class="disabled"><a th:href="@{/search(keywords=${keywords},size=${page.size},page=${page.number + 1})}">&rarr;</a></li>
+                            <li class="disabled"><a th:href="@{/search(keywords=${keywords},size=${page.size},page=${page.getTotalPages() - 1})}">&raquo; </a></li>
+                        </th:block>
+                    </ul>
+                </div>
+                <div class="col-xs-2"></div>
+            </div>
+            <div class="col-xs-2 col-md-2"></div>
+        </div>
+    </div>
+
+    <footer th:replace="fragments/footer :: footerFragment">
+    </footer>
+</body>
+</html>

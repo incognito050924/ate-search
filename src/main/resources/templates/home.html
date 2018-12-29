@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: configFragment">
+    <!-- 공통으로 쓰이는 css 파일을 넣는다.-->
+    <!-- Basic Styles -->
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/smartAdmin/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/smartAdmin/css/font-awesome.min.css" />
+
+    <!-- SmartAdmin Styles : Please note (smartadmin-production.css) was created using LESS variables -->
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/smartAdmin/css/smartadmin-production.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/smartAdmin/css/smartadmin-skins.min.css" />
+
+    <!-- SmartAdmin RTL Support is under construction-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/smartAdmin/css/smartadmin-rtl.min.css" />
+
+    <!-- Style css -->
+    <link rel="stylesheet" href="../static/css/demo.css" />
+    <link rel="stylesheet" href="../static/ecoleTree/css/ecoleTree.css" />
+</head>
+<body>
+    <header th:replace="fragments/header :: headerFragment">
+    </header>
+
+	<div class="bxSearchWrap">
+		<img src="../static/ecoleTree/img/logo.png" />
+		<h1>장비검색</h1>
+        <form action="#" method="get" th:action="@{/search}" >
+            <div class="bxSeach">
+                <input type="text" id="keywords" name="keywords" th:value="*{keywords}"/>
+                <button type="submit" class="btn btn-primary btn-lg">검색	</button>
+            </div>
+        </form>
+	</div>
+
+    <footer th:replace="fragments/footer :: footerFragment">
+    </footer>
+</body>
+</html>

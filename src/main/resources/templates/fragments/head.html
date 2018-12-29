@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head th:fragment="configFragment">
+    <meta charset="UTF-8" />
+    <meta name="description" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- 공통으로 쓰이는 css 파일을 넣는다.-->
+    <!-- Basic Styles -->
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/smartAdmin/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/smartAdmin/css/font-awesome.min.css" />
+
+    <!-- SmartAdmin Styles : Please note (smartadmin-production.css) was created using LESS variables -->
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/smartAdmin/css/smartadmin-production.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/smartAdmin/css/smartadmin-skins.min.css" />
+
+    <!-- SmartAdmin RTL Support is under construction-->
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/smartAdmin/css/smartadmin-rtl.min.css" />
+
+    <!-- Style css -->
+    <link rel="stylesheet" href="/static/css/demo.css" />
+    <link rel="stylesheet" href="/static/ecoleTree/css/ecoleTree.css" />
+
+    <!-- 사용자 CSS 영역이 들어감 -->
+    <th:block layout:fragment="css"></th:block>
+
+    <!-- 공통으로 쓰이는 js 파일을 넣는다.-->
+    <!-- Bootstrap core JavaScript ================================================== -->
+    <!-- Core JS -->
+    <!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script>
+        if (!window.jQuery) {
+            document.write('<script src="/static/smartAdmin/js/libs/jquery-2.0.2.min.js"><\/script>');
+        }
+    </script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script>
+        if (!window.jQuery.ui) {
+            document.write('<script src="/static/smartAdmin/js/libs/jquery-ui-1.10.3.min.js"><\/script>');
+        }
+    </script>
+
+    <!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+    <script data-pace-options='{ "restartOnRequestAfter": true }' src="/static/smartAdmin/js/plugin/pace/pace.min.js"></script>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="/static/smartAdmin/js/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Plugin JS : notification -->
+    <script src="/static/smartAdmin/js/notification/SmartNotification.min.js"></script>
+
+    <!-- Plugin JS : dataTables -->
+    <script src="/static/smartAdmin/js/plugin/datatables/jquery.dataTables.min.js"></script>
+    <script src="/static/smartAdmin/js/plugin/datatables/dataTables.bootstrap.min.js"></script>
+
+    <!-- Plugin JS : jQuery validation -->
+    <script src="/static/smartAdmin/js/plugin/jquery-validate/jquery.validate.min.js"></script>
+
+    <!-- SPARKLINES -->
+    <script src="/static/smartAdmin/js/plugin/sparkline/jquery.sparkline.min.js"></script>
+
+    <!-- JQUERY MASKED INPUT -->
+    <script src="/static/smartAdmin/js/plugin/masked-input/jquery.maskedinput.min.js"></script>
+
+    <!-- JQUERY SELECT2 INPUT -->
+    <script src="/static/smartAdmin/js/plugin/select2/select2.min.js"></script>
+
+    <!-- JQUERY UI + Bootstrap Slider -->
+    <script src="/static/smartAdmin/js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
+
+    <!-- browser msie issue fix -->
+    <script src="/static/smartAdmin/js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
+
+    <!-- FastClick: For mobile devices -->
+    <script src="/static/smartAdmin/js/plugin/fastclick/fastclick.min.js"></script>
+
+    <!-- MAIN APP JS FILE -->
+    <script src="/static/smartAdmin/js/app.min.js"></script>
+
+    <!-- PAGE RELATED PLUGIN(S) -->
+    <script src="/static/smartAdmin/js/plugin/jquery-form/jquery-form.min.js"></script>
+    <script src="/static/smartAdmin/js/plugin/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+
+    <script src="/static/js/demo.js"></script>
+
+    <!-- 사용자 스크립트 영역이 들어감 -->
+    <th:block layout:fragment="script"></th:block>
+</head>
+</html>

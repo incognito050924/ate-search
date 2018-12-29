@@ -1,0 +1,112 @@
+/*////폰트불러오기////////////////////////////////////////////////////////////////*/
+@font-face {
+	font-family: 'nanum';
+	src: url('../fonts/NanumBarunGothic.eot');
+	src: local(※), url('../fonts/NanumBarunGothic.woff') format('woff'), url('../fonts/NanumBarunGothic.eot?#iefix') format('embedded-opentype'), url('../fonts/NanumBarunGothic.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'nanumSL';
+	src: url('../fonts/NanumSquareLight.eot');
+	src: local(※), url('../fonts/NanumSquareLight.woff') format('woff'), url('../fonts/NanumSquareLight.eot?#iefix') format('embedded-opentype'), url('../fonts/NanumSquareLight.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'nanumSR';
+	src: url('../fonts/NanumSquareRegular.eot');
+	src: local(※), url('../fonts/NanumSquareRegular.woff') format('woff'), url('../fonts/NanumSquareRegular.eot?#iefix') format('embedded-opentype'), url('../fonts/NanumSquareRegular.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'nanumSB';
+	src: url('../fonts/NanumSquareBold.eot');
+	src: local(※), url('../fonts/NanumSquareBold.woff') format('woff'), url('../fonts/NanumSquareBold.eot?#iefix') format('embedded-opentype'), url('../fonts/NanumSquareBold.ttf') format('truetype');
+}
+
+html {
+	background: url('../img/bg.jpg') !important;
+}
+body {
+	font-family: 'nanumSR', 'Open Sans', 'Trebuchet MS', arial, sans-serif !important;
+	background: url('../img/bg.jpg') !important;
+	padding-bottom: 30px;
+}
+
+
+/*검색*/
+.bxSearchWrap{
+	width: 610px; height: 255px;
+	text-align: center;
+	position: absolute;
+    left: 50%;
+    margin-left: -305px;
+    top: 50%;
+    margin-top: -260px;
+}
+
+.bxSearchWrap h1{
+	font-family: 'nanumSB', 'Open Sans', 'Trebuchet MS', arial, sans-serif !important;
+	color: #13007c;
+	font-size: 40px;
+}
+
+.bxSeach{
+	position: relative;
+	height: 97px;
+	border: 1px solid #cccccc;
+	border-radius: 4px;
+	background: #f7f7f7;
+	padding: 25px 38px;
+}
+
+.bxSeach input{
+	width: 458px;
+	float: left;
+	border: 1px solid #cccccc;
+	border-radius: 4px;
+	min-height: 45px;
+	font-size: 24px;
+	padding-left: 10px;
+}
+
+.bxSeach a{
+	float: right;
+}
+
+
+
+/*검색결과*/
+.bxListWrap{
+    margin-left: 13px;
+    margin-right: 13px;
+    
+    padding-top: 45px;
+    text-align: center;	
+}
+.bxListHead{
+	height: 30px;
+	margin-top:50px;
+	margin-bottom: 10px;
+}
+.bxListHead span{
+	float: left;
+	font-family: 'nanumSB', 'Open Sans', 'Trebuchet MS', arial, sans-serif !important;
+	font-size: 20px;
+	color: #13007c;
+}
+.bxListHead p{
+	float: left;
+	font-family: 'nanumSB', 'Open Sans', 'Trebuchet MS', arial, sans-serif !important;
+	font-size: 15px;
+	color: #13007c;
+}
+.bxListHead a{
+	float: right;
+}
+
+.bxListWrap table{
+	background: #fff;
+	text-align: left;
+	color: #333;
+	font-size: 16px;
+}
+.bxListWrap table p{
+	margin : 0 0 0px;
+}

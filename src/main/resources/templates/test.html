@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="fragments/head :: configFragment"></head>
+    <body>
+    <header th:replace="fragments/header :: headerFragment">
+        <p>Default header area.</p>
+    </header>
+
+        <section id="content" th:fragment="content">
+            <p th:text="${'Hello ' + name + '!'}">Hello, ${name}</p>
+            <p>This is default main content with default layout</p>
+        </section>
+
+    <footer th:replace="fragments/footer :: footerFragment">
+        <p>Default footer area.</p>
+    </footer>
+    </body>
+</html>
